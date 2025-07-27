@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Image Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📸 Simple Image Gallery</h1>
+            <p>Upload and organize your favorite images</p>
+        </header>
+
+        <div class="upload-section">
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-content">
+                    <div class="upload-icon">📁</div>
+                    <h3>Drop images here or click to upload</h3>
+                    <p>Supports JPG, PNG, GIF (Max 5MB each)</p>
+                    <input type="file" id="fileInput" multiple accept="image/*" style="display: none;">
+                    <button class="upload-btn" onclick="document.getElementById('fileInput').click()">
+                        Choose Files
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search images...">
+                <button onclick="searchImages()">🔍</button>
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterImages('all')">All</button>
+                <button class="filter-btn" onclick="filterImages('recent')">Recent</button>
+                <button class="filter-btn" onclick="filterImages('favorites')">Favorites</button>
+            </div>
+        </div>
+
+        <div class="gallery" id="gallery">
+            <!-- Images will be dynamically added here -->
+        </div>
+
+        <div class="modal" id="modal">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img class="modal-content" id="modalImg">
+            <div class="modal-info">
+                <h3 id="modalTitle"></h3>
+                <p id="modalDate"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
